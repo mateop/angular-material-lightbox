@@ -2,10 +2,8 @@
     'use strict';
 
     angular.module('ame.lightbox')
+        .controller('AmeLightboxController', ['items', 'options', '$log', '$mdDialog', '$scope', '$document', '$timeout', '$mdMedia', AmeLightboxController]);
 
-        .controller('AmeLightboxController', AmeLightboxController);
-
-    /** @ngInject */
     function AmeLightboxController(items, options, $log, $mdDialog, $scope, $document, $timeout, $mdMedia) {
         var self = this;
         if (!items.length > 0) {

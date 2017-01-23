@@ -12,9 +12,8 @@
 
     angular.module("ame.lightbox")
         .constant("ameLightboxDefaults", defaults)
-        .factory("ameLightbox", ameLightboxFactory);
+        .factory("ameLightbox", ['$mdDialog', '$timeout', ameLightboxFactory]);
 
-    /** @ngInject */
     function ameLightboxFactory($mdDialog, $timeout) {
         return {
             show: show
@@ -36,7 +35,7 @@
                         if (angular.isNumber(options.backdropOpacity)) {
                             document.getElementsByClassName("md-dialog-backdrop")[0].style.opacity = options.backdropOpacity;
                         }
-                    });
+                    }, 0, false);
                 },
                 locals: {
                     items: items.map(_normalizeItem),
