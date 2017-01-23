@@ -1,13 +1,13 @@
 {
   "name": "ame-lightbox",
-  "version": "0.0.9",
+  "version": "0.1.0",
   "description": "Lightbox component on top of angular material",
-  "main": "src/ame/lighbox/angular-material-lightbox.js",
+  "main": "index.js",
   "scripts": {
     "build": "gulp build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "MAteo Perčinić (percinic@gmail.com)",
+  "author": "Mateo Perčinić (percinic@gmail.com)",
   "license": "MIT",
   "devDependencies": {
     "event-stream": "^3.3.2",
@@ -36,5 +36,8 @@
     "sass-bidi": "^1.0.0",
     "streamqueue": "^1.1.1"
   },
-  "dependencies": {}
+  "dependencies": {
+    "angular": "^1.5.0",
+    "angular-material": "^1.1.1"
+  }
 }
