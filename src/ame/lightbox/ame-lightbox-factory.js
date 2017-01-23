@@ -1,4 +1,4 @@
-(function(angular) {
+(function (angular) {
     "use strict";
 
     var defaults = {
@@ -14,6 +14,7 @@
         .constant("ameLightboxDefaults", defaults)
         .factory("ameLightbox", ameLightboxFactory);
 
+    /** @ngInject */
     function ameLightboxFactory($mdDialog, $timeout) {
         return {
             show: show
@@ -21,7 +22,7 @@
 
 
         function show(items, options) {
-            items   = items || [];
+            items = items || [];
             options = angular.extend({}, defaults, options);
 
             $mdDialog.show({
@@ -30,9 +31,9 @@
                 controllerAs: "ctrl",
                 targetEvent: options.targetEvent,
                 clickOutsideToClose: true,
-                onShowing: function(){
-                    $timeout(function(){
-                        if(angular.isNumber(options.backdropOpacity)){
+                onShowing: function () {
+                    $timeout(function () {
+                        if (angular.isNumber(options.backdropOpacity)) {
                             document.getElementsByClassName("md-dialog-backdrop")[0].style.opacity = options.backdropOpacity;
                         }
                     });
