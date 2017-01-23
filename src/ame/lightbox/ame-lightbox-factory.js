@@ -1,9 +1,3 @@
-/**
- * @auther Alireza Mirian (mirian@hasintech.com)
- * @since 1.0 (08/27/2016)
- */
-
-
 (function(angular) {
     "use strict";
 
@@ -31,7 +25,7 @@
             options = angular.extend({}, defaults, options);
 
             $mdDialog.show({
-                templateUrl: "ame/lightbox/dialog-lightbox.html",
+                template: require('./dialog-lightbox.html'),
                 controller: "AmeLightboxController",
                 controllerAs: "ctrl",
                 targetEvent: options.targetEvent,

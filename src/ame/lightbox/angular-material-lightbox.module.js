@@ -1,19 +1,11 @@
-/**
- * @auther Alireza Mirian (mirian@hasintech.com)
- * @since 1.0 (08/27/2016)
- */
+require('angular');
+require('angular-material');
+angular.module('ame.lightbox', ['ngMaterial']);
 
-(function(angular){
-    "use strict";
+require('./ame-lightbox-factory');
+require('./ame-lightbox-controller');
+require('./tools/ame-on-load');
 
-    angular.module("ame.lightbox", [
-        'material.core',
-        'material.components.dialog',
-        'material.components.button',
-        'material.components.radioButton',
-        'material.components.progressCircular',
-        'material.components.swipe',
-        'material.components.icon'
-    ])
+require('./ame-lightbox.scss');
 
-})(angular);
+module.exports = 'ame.lightbox';

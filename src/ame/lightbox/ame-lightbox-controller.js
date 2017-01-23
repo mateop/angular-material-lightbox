@@ -1,9 +1,3 @@
-/**
- * @auther Alireza Mirian (mirian@hasintech.com)
- * @since 1.0 (08/27/2016)
- */
-
-
 (function(angular) {
     "use strict";
 
@@ -48,7 +42,7 @@
             if (angular.isDefined(currentIndex)) {
                 self.loading = true;
             }
-        })
+        });
 
         function imageLoaded() {
             self.loading  = false;

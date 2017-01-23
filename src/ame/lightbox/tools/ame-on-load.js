@@ -1,8 +1,3 @@
-/**
- * @auther Alireza Mirian (mirian@hasintech.com)
- * @since 1.0 (08/27/2016)
- */
-
 (function(angular){
 
     angular.module("ame.lightbox")
