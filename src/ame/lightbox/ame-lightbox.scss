@@ -27,7 +27,7 @@ $animationDuration: .2s;
     display: block;
     margin: auto;
     min-height: 70px;
-    img {
+    img, video {
       width: 100%;
       height: 100%;
       &.ng-hide-remove, &.ng-hide-remove-active {

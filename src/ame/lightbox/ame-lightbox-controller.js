@@ -32,14 +32,14 @@
 
         function next() {
             self.currentIndex = (self.currentIndex + 1) % items.length;
-            const extension = self.items[self.currentIndex].substr(self.items[self.currentIndex].lastIndexOf('.') + 1).toLowerCase();
+            const extension = self.items[self.currentIndex].src.substr(self.items[self.currentIndex].src.lastIndexOf('.') + 1).toLowerCase();
             self.isImage = imageFileTypes.indexOf(extension) !== -1;
         }
 
         function prev() {
             var index = self.currentIndex - 1;
             self.currentIndex = (index >= 0 ? index : index + items.length) % items.length;
-            const extension = self.items[self.currentIndex].substr(self.items[self.currentIndex].lastIndexOf('.') + 1).toLowerCase();
+            const extension = self.items[self.currentIndex].src.substr(self.items[self.currentIndex].src.lastIndexOf('.') + 1).toLowerCase();
             self.isImage = imageFileTypes.indexOf(extension) !== -1;
         }
 
