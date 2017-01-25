@@ -23,6 +23,8 @@
         self.isImage = true;
 
         const imageFileTypes = ['png', 'jpg', 'jpeg', 'webp', 'svg', 'gif'];
+        const extension = self.items[self.currentIndex].src.substr(self.items[self.currentIndex].src.lastIndexOf('.') + 1).toLowerCase();
+        self.isImage = imageFileTypes.indexOf(extension) !== -1;
 
         if (options.keyboard) {
             _listenToKeyboardEvents();
