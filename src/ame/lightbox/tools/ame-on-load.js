@@ -5,9 +5,13 @@
             return {
                 restrict: 'A',
                 link: function(scope, element, attrs) {
-                    element.bind('load', function() {
+                    element.on('load canplay', function () {
                         //call the function that was passed
                         scope.$apply(attrs.ameOnLoad);
+                    });
+
+                    scope.$on('$destroy', function () {
+                        element.off('load canplay');
                     });
                 }
             };

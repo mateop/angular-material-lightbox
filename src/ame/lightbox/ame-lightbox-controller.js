@@ -14,11 +14,16 @@
         self.loading = true;
         self.options = options;
         self.imageLoaded = imageLoaded;
+        self.videoLoaded = videoLoaded;
         self.currentIndex = Math.max(Math.min(options.initialIndex || 0, items.length - 1), 0);
         self.prev = prev;
         self.next = next;
         self.imageWidth = null;
         self.imageHeight = null;
+        self.isImage = true;
+
+        const imageFileTypes = ['png', 'jpg', 'jpeg', 'webp', 'svg', 'gif'];
+
         if (options.keyboard) {
             _listenToKeyboardEvents();
         }
@@ -27,12 +32,15 @@
 
         function next() {
             self.currentIndex = (self.currentIndex + 1) % items.length;
-
+            const extension = self.items[self.currentIndex].substr(self.items[self.currentIndex].lastIndexOf('.') + 1).toLowerCase();
+            self.isImage = imageFileTypes.indexOf(extension) !== -1;
         }
 
         function prev() {
             var index = self.currentIndex - 1;
             self.currentIndex = (index >= 0 ? index : index + items.length) % items.length;
+            const extension = self.items[self.currentIndex].substr(self.items[self.currentIndex].lastIndexOf('.') + 1).toLowerCase();
+            self.isImage = imageFileTypes.indexOf(extension) !== -1;
         }
 
         $scope.$watch(function () {
@@ -47,6 +55,39 @@
             self.loading = false;
             self.resizing = true;
             resize().then(function () {
+                self.resizing = false;
+            });
+        }
+
+        function videoLoaded() {
+            self.loading = false;
+            self.resizing = true;
+
+            var imgContainer = document.getElementById('ame_lightbox_image');
+            var video = imgContainer.getElementsByTagName('video')[0];
+            var containingArea = getContainingArea();
+
+            var height = video.videoHeight;
+            var width = video.videoWidth;
+            if (video.videoWidth / containingArea.width > video.videoHeight / containingArea.height) {
+                // width may be bottleneck
+                if (video.videoWidth > containingArea.width) {
+                    width = containingArea.width;
+                }
+                height = video.videoHeight * (width / video.videoWidth);
+            }
+            else {
+                // height may be bottleneck
+
+                if (video.videoHeight > containingArea.height) {
+                    height = containingArea.height;
+                }
+                width = video.videoWidth * (height / video.videoHeight);
+            }
+            imgContainer.style.height = height + 'px';
+            imgContainer.style.width = width + 'px';
+
+            $timeout(200).then(function () {
                 self.resizing = false;
             });
         }

@@ -3,7 +3,10 @@
         <md-progress-circular ng-if="ctrl.loading"></md-progress-circular>
         <div id="ame_lightbox_image" md-swipe-left="ctrl.prev()" md-swipe-right="ctrl.next()">
             <img ame-on-load="ctrl.imageLoaded()"
-                 ng-show="!ctrl.loading && !ctrl.resizing" ng-src="{{ctrl.items[ctrl.currentIndex].src}}"/>
+                 ng-show="!ctrl.loading && !ctrl.resizing" ng-src="{{ctrl.items[ctrl.currentIndex].src}}"
+                 ng-if="ctrl.isImage"/>
+            <video ame-on-load="ctrl.videoLoaded()" ng-show="!ctrl.loading && !ctrl.resizing"
+                   ng-src="{{ctrl.items[ctrl.currentIndex].src}}" ng-if="!ctrl.isImage" preload="auto" controls></video>
         </div>
         <div layout="row" class="_dots" ng-show="ctrl.options.showDots">
             <md-radio-group ng-model="ctrl.currentIndex">

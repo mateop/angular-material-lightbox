@@ -19,7 +19,6 @@
             show: show
         };
 
-
         function show(items, options) {
             items = items || [];
             options = angular.extend({}, defaults, options);
