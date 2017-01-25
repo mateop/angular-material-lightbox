@@ -65,4 +65,13 @@ $animationDuration: .2s;
       display: inline-block;
     }
   }
+
+  > h3 {
+    position: absolute;
+    bottom: -50px;
+    color: #fff;
+    left: 0;
+    width: 100%;
+    text-align: center;
+  }
 }
