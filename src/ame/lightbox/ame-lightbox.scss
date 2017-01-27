@@ -13,13 +13,18 @@ $animationDuration: .2s;
     position: absolute;
     top: 50%;
     margin-top: -17px;
+
+    md-icon {
+      font-size: 30px;
+      height: 30px;
+      width: 30px;
+      line-height: 30px;
+    }
   }
   ._next {
-    transform: rotate(180deg);
     right: -70px;
   }
   ._prev {
-    transform: none;
     left: -70px;
   }
   #ame_lightbox_image {
