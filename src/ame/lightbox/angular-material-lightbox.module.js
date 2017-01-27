@@ -6,6 +6,4 @@ require('./ame-lightbox-factory');
 require('./ame-lightbox-controller');
 require('./tools/ame-on-load');
 
-require('./ame-lightbox.scss');
-
 module.exports = 'ame.lightbox';
