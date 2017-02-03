@@ -11,7 +11,7 @@
                     });
 
                     scope.$on('$destroy', function () {
-                        element.off('load canplay');
+                        element.off('load loadedmetadata');
                     });
                 }
             };

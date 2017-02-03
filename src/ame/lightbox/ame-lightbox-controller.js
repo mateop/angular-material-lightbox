@@ -2,9 +2,9 @@
     'use strict';
 
     angular.module('ame.lightbox')
-        .controller('AmeLightboxController', ['items', 'options', '$log', '$mdDialog', '$scope', '$document', '$timeout', '$mdMedia', AmeLightboxController]);
+        .controller('AmeLightboxController', ['items', 'options', '$log', '$mdDialog', '$scope', '$document', '$timeout', '$mdMedia', '$window', AmeLightboxController]);
 
-    function AmeLightboxController(items, options, $log, $mdDialog, $scope, $document, $timeout, $mdMedia) {
+    function AmeLightboxController(items, options, $log, $mdDialog, $scope, $document, $timeout, $mdMedia, $window) {
         var self = this;
         if (!items.length > 0) {
             $log.warn('mde.lightbox: calling lightbox without any image!');
@@ -86,8 +86,11 @@
                 }
                 width = video.videoWidth * (height / video.videoHeight);
             }
-            imgContainer.style.height = height + 'px';
-            imgContainer.style.width = width + 'px';
+            $window.requestAnimationFrame(function () {
+                imgContainer.style.height = height + 'px';
+                imgContainer.style.width = width + 'px';
+            });
+
 
             $timeout(200).then(function () {
                 self.resizing = false;
